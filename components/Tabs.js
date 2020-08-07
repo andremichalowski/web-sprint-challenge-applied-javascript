@@ -12,12 +12,31 @@
 
 const { default: Axios } = require("axios");
 
-import axios from "axios";
+// import axios from "axios";
 
-Axios.get("https://lambda-times-api.herokuapp.com/topics")
+const topics = document.querySelector(".topics");
+const tabs = document.querySelector(".tabs");
+
+axios
+  .get("https://lambda-times-api.herokuapp.com/topics")
   .then((res) => {
-    console.log(res);
+    // console.log(res);
+    topicsArray = res.data.topics;
+    // console.log(topicsArray);
+    topicsArray.forEach((item) => {
+      // console.log(item);
+      topics.appendChild(Topics(item));
+    });
   })
-  .catch((err) => {
-    console.log("404: No data avaialble", err);
+  .catch((error) => {
+    console.log("404: No data available", error);
   });
+
+//Cont: mark, class, cont, app, ret
+function Topics(data) {
+  const tab = document.createElement("div");
+  tab.classList.add("tab");
+  tab.textContent = data;
+
+  return tab;
+}
