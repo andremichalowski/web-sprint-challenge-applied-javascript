@@ -48,6 +48,18 @@ function Topics(data) {
   const tab = document.createElement("div");
   tab.classList.add("tab");
   tab.textContent = data;
+//   //Stretch: Filter Click Event
+//   tab.addEventListener("click", (event) => {
+//     // console.log(tabs);
+//     console.log(`Input detected ${data}`);
+//     // alert(`Click Function for ${data}`);
+//     const filters = document.querySelectorAll(".headline");
+//     if (data === (contains?) filters) {
+//         tab.classList.add("active");
+//     } else if (data !== filters) {
+//         tab.classList.remove("active");
+//     }
+  });
 
   return tab;
 }
