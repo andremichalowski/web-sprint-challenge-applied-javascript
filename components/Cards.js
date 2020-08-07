@@ -24,7 +24,7 @@
 const cardsContainer = document.querySelector(".cards-container");
 
 axios
-  .get("https://lambda-times-backend.herokuapp.com/articles")
+  .get("https://lambda-times-backend.herokuapp.com/articles~~~~")
   .then((res) => {
     // console.log(res);
     Object.keys(res.data.articles).forEach((tab) => {
@@ -33,7 +33,19 @@ axios
       });
     });
   })
-  .catch((err) => console.error(err));
+  .catch((err) => {
+    //Stretch goal: Error message>>>
+    let errmsg = "404: No data available";
+    alert(errmsg);
+
+    function ErrorMessage(errmsg) {
+      const uhoh = document.createElement("div");
+      uhoh.classList.add("tab", "headline");
+      uhoh.textContent = "404: No data available";
+      return uhoh;
+    }
+    cardsContainer.appendChild(ErrorMessage());
+  });
 
 //Const: mark class content append return
 function createCard(data) {

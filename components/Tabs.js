@@ -30,6 +30,17 @@ axios
   })
   .catch((error) => {
     console.log("404: No data available", error);
+    //Stretch goal: Error message>>>
+    let errmsg = "404: No data available";
+    alert(errmsg);
+
+    function ErrorMessage(errmsg) {
+      const uhoh = document.createElement("div");
+      uhoh.classList.add("tab", "headline");
+      uhoh.textContent = "404: No data available";
+      return uhoh;
+    }
+    topics.appendChild(ErrorMessage());
   });
 
 //Cont: mark, class, cont, app, ret
